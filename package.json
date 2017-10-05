@@ -1,0 +1,26 @@
+{
+  "name": "aloha",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.16.1",
+    "node-telegram-bot-api": "^0.28.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junglebob20/t-bot.v1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/junglebob20/t-bot.v1/issues"
+  },
+  "homepage": "https://github.com/junglebob20/t-bot.v1#readme",
+  "description": ""
+}
