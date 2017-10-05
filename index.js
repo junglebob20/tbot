@@ -1,7 +1,5 @@
 const request = require('request');
 var TelegramBot = require('node-telegram-bot-api');
-var mysql = require('mysql');
-var db = require('./connectdb');
 var app = require('./appStart.js');
 // Устанавливаем токен, который выдавал нам бот.
 var token = '463399042:AAG49evmQ_18oxvy-rGg_NgybiEvtu3POsk';
@@ -76,21 +74,14 @@ function main(interval){
     givePhoto("https://api.vk.com/method/photos.get?owner_id=-45745333&album_id=wall&rev=1&extended=1&v=5.68", function(photo) {
       photo.response.items.sort(function(a,b){
         return b.likes.count-a.likes.count;
-      })
+      });
       var i=Math.floor((Math.random() * 450) + 0);
-      db.query("SELECT `id` FROM `members`", function (err, result) {
-        if (err) throw err;
-        console.log(result);
-        result.forEach(function(element){
           if (!photo.response.items[i].photo_604) {
-            bot.sendPhoto(element.id,photo.response.items[i].photo_130,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
+            bot.sendPhoto(291241850,photo.response.items[i].photo_130,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
           }else{
-            bot.sendPhoto(element.id,photo.response.items[i].photo_604,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
+            bot.sendPhoto(291241850,photo.response.items[i].photo_604,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
           }
           console.log('mem vyslan');
-        });
-      });
-    });
   }, interval  );
 }
-//main(900000);
+main(5000);
