@@ -69,19 +69,20 @@ function givePhoto(host,cb) {
      }
      request(options, callback);
  }
-function main(interval){
-  setInterval(function(){
-    givePhoto("https://api.vk.com/method/photos.get?owner_id=-45745333&album_id=wall&rev=1&extended=1&v=5.68", function(photo) {
-      photo.response.items.sort(function(a,b){
-        return b.likes.count-a.likes.count;
-      });
-      var i=Math.floor((Math.random() * 450) + 0);
-          if (!photo.response.items[i].photo_604) {
-            bot.sendPhoto(291241850,photo.response.items[i].photo_130,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
-          }else{
-            bot.sendPhoto(291241850,photo.response.items[i].photo_604,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
-          }
-          console.log('mem vyslan');
-  }, interval  );
-}
+ function main(interval){
+   setInterval(function(){
+     givePhoto("https://api.vk.com/method/photos.get?owner_id=-45745333&album_id=wall&rev=1&extended=1&v=5.68", function(photo) {
+       photo.response.items.sort(function(a,b){
+         return b.likes.count-a.likes.count;
+       });
+    });
+    var i=Math.floor((Math.random() * 450) + 0);
+        if (!photo.response.items[i].photo_604) {
+          bot.sendPhoto(291241850,photo.response.items[i].photo_130,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
+        }else{
+          bot.sendPhoto(291241850,photo.response.items[i].photo_604,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
+        }
+        console.log('mem vyslan');
+   }, interval);
+ }
 main(5000);
