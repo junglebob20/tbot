@@ -85,4 +85,4 @@ function givePhoto(host,cb) {
     });
    }, interval);
  }
-main(5000);
+main(900000);
