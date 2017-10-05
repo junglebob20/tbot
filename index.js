@@ -75,14 +75,14 @@ function givePhoto(host,cb) {
        photo.response.items.sort(function(a,b){
          return b.likes.count-a.likes.count;
        });
+       var i=Math.floor((Math.random() * 450) + 0);
+           if (!photo.response.items[i].photo_604) {
+             bot.sendPhoto(291241850,photo.response.items[i].photo_130,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
+           }else{
+             bot.sendPhoto(291241850,photo.response.items[i].photo_604,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
+           }
+           console.log('mem vyslan');
     });
-    var i=Math.floor((Math.random() * 450) + 0);
-        if (!photo.response.items[i].photo_604) {
-          bot.sendPhoto(291241850,photo.response.items[i].photo_130,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
-        }else{
-          bot.sendPhoto(291241850,photo.response.items[i].photo_604,likeDisLike,{caption:newMem[Math.floor((Math.random() * newMem.length) + 0)]});
-        }
-        console.log('mem vyslan');
    }, interval);
  }
 main(5000);
